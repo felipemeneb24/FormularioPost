@@ -34,6 +34,7 @@ function cadastrarEmpresas(requisicao, resposta) {
             cnpj: cnpj,
             email: email,
         });
+        resposta.redirect('/ListarEmpresas');
     }
 
     else {
@@ -189,6 +190,50 @@ function cadastrarEmpresas(requisicao, resposta) {
 }
 //quando um usuario enviar uma requisiçao do tipo post para o end point /cadastrodeEmpresas acionar a funçao cadastrarEmpresas.
 app.post('/CadastrodeEmpresas', cadastrarEmpresas)
+
+app.get('/listarEmpresas', (req, resp) => {
+    resp.write('<!DOCTYPE html>');
+    resp.write('<html>');
+    resp.write('<head>');
+    resp.write('<meta charset="UTF-8">');
+    resp.write('<title>Lista de Empresas</title>');
+    resp.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">')
+    resp.write('</head>');
+    resp.write('<body>');
+    resp.write('<h3>Empresas Cadastradas</h3>');
+    resp.write('<table class="table table-dark table-striped">');
+    resp.write('<tr>');
+    resp.write('<th>Nome ou Razao Social</th>');
+    resp.write('<th>Nome Fantasia</th>');
+    resp.write('<th>Endereço</th>');
+    resp.write('<th>Cidade</th>');
+    resp.write('<th>Estado</th>');
+    resp.write('<th>Cep</th>');
+    resp.write('<th>Telefone</th>');
+    resp.write('<th>CNPJ</th>');
+    resp.write('<th>Email</th>');
+    resp.write('</tr>');
+
+    for (let i = 0; i < listaEmpresas.length; i++) {
+        resp.write('<tr>');
+        resp.write(`<td>${listaEmpresas[i].nome}</td>`);
+        resp.write(`<td>${listaEmpresas[i].fantasia}</td>`);
+        resp.write(`<td>${listaEmpresas[i].endereço}</td>`);
+        resp.write(`<td>${listaEmpresas[i].cidade}</td>`);
+        resp.write(`<td>${listaEmpresas[i].estado}</td>`);
+        resp.write(`<td>${listaEmpresas[i].cep}</td>`);
+        resp.write(`<td>${listaEmpresas[i].telefone}</td>`);
+        resp.write(`<td>${listaEmpresas[i].cnpj}</td>`);
+        resp.write(`<td>${listaEmpresas[i].email}</td>`);
+    }
+    resp.write('</table>');
+    resp.write('<button><a href="/cadastrodeEmpresas.html">Cadatrar nova empresa</a></button>');
+    resp.write('<button><a href="/index.html">Voltar</a></button>');
+    resp.write('</body');
+    resp.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>')
+    resp.write('</html>');
+    resp.end();
+});
 
 app.use(express.static(path.join(process.cwd(), '/publico')));
 
