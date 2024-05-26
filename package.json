@@ -1,0 +1,29 @@
+{
+  "name": "formulariopost",
+  "version": "1.0.0",
+  "description": "formulario post",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipemeneb24/FormularioPost.git"
+  },
+  "keywords": [
+    "post",
+    "formulario",
+    "validando"
+  ],
+  "author": "Felipe Mb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipemeneb24/FormularioPost/issues"
+  },
+  "homepage": "https://github.com/felipemeneb24/FormularioPost#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
