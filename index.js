@@ -227,7 +227,7 @@ app.get('/listarEmpresas', (req, resp) => {
         resp.write(`<td>${listaEmpresas[i].email}</td>`);
     }
     resp.write('</table>');
-    resp.write('<button><a href="/cadastrodeEmpresas.html">Cadatrar nova empresa</a></button>');
+    resp.write('<button><a href="/CadastrodeEmpresas.html">Cadastrar nova empresa</a></button>');
     resp.write('<button><a href="/index.html">Voltar</a></button>');
     resp.write('</body');
     resp.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>')
