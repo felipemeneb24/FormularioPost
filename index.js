@@ -182,7 +182,7 @@ function cadastrarEmpresas(requisicao, resposta) {
     </html>`);
 
 
-
+        resposta.end();
 
     }//fim else
 
